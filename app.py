@@ -22,8 +22,16 @@ class Product(db.Model):
 	status = None
 	
 	def __repr__(self):
-		return "{0} R$ {1}".format(self.name, self.price_total)	
-			
+		return "{0} R$ {1}".format(self.name, self.price_total)
+
+class User(db.Model):
+	id = None
+	name = None
+	email = None
+	profile_url = None
+	access_token = None
+	date_created = None
+		
 manager = APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(Product, methods=['GET', 'POST', 'PUT'])
 
